@@ -1,15 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 
 
 export default function App() {
+  const [hasTextChanged, setHasTextChanged] = useState(false)
   return (
     <View style={styles.container}>
 
       <TextInput placeholder="Troque o texto da tela aqui" style={styles.input} />
-      <Text style={styles.text} >React Native</Text>
-      <TouchableOpacity style={styles.trocar}>
+        {!hasTextChanged ? // Aqui basicamente você verifica se o valor de hasTextChange é igual a false, se sim ele mostra o primeiro textop (React Native) se não o outro
+          (<Text style={styles.text} >React Native</Text>)
+          :
+          (<Text style={styles.text}> Novo Texto </Text>)
+        }
+      <TouchableOpacity style={styles.trocar} onPress={() => setHasTextChanged(prevState => !prevState)}> // Aqui troca o valor do state do hasTextChanged pra true ou false
         <Text style={styles.textButtons}>Trocar</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.apagar}>
