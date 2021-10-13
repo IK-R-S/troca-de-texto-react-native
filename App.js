@@ -14,7 +14,7 @@ export default function App() {
           :
           (<Text style={styles.text}> Novo Texto </Text>)
         }
-      <TouchableOpacity style={styles.trocar} onPress={() => setHasTextChanged(prevState => !prevState)}> // Aqui troca o valor do state do hasTextChanged pra true ou false
+      <TouchableOpacity style={styles.trocar} onPress={() => setHasTextChanged(prevState => !prevState)}>
         <Text style={styles.textButtons}>Trocar</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.apagar}>
